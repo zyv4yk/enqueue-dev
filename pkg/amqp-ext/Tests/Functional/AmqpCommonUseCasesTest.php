@@ -162,11 +162,11 @@ class AmqpCommonUseCasesTest extends TestCase
         $this->assertNull($consumer->receive(1000));
 
         $message = $this->amqpContext->createMessage(__METHOD__);
+        $message->setDeliveryTag(1);
 
         $producer = $this->amqpContext->createProducer();
         $producer->send($topic, $message);
         $actualMessage = $consumer->receive(1000);
-        $message->setDeliveryTag(1);
 
         $this->assertInstanceOf(AmqpMessage::class, $actualMessage);
         $consumer->acknowledge($message);
@@ -186,12 +186,12 @@ class AmqpCommonUseCasesTest extends TestCase
         $this->assertNull($consumer->receive(1000));
 
         $message = $this->amqpContext->createMessage(__METHOD__);
+        $message->setDeliveryTag(1);
 
         $producer = $this->amqpContext->createProducer();
         $producer->send($topic, $message);
         usleep(100);
         $actualMessage = $consumer->receive(0);
-        $message->setDeliveryTag(1);
 
         $this->assertInstanceOf(AmqpMessage::class, $actualMessage);
         $consumer->acknowledge($message);
