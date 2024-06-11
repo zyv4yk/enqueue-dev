@@ -158,7 +158,7 @@ class AmqpCommonUseCasesTest extends TestCase
         $this->amqpContext->declareTopic($topic);
 
         $consumer = $this->amqpContext->createConsumer($topic);
-        //guard
+        // guard
         $this->assertNull($consumer->receive(1000));
 
         $message = $this->amqpContext->createMessage(__METHOD__);
@@ -182,7 +182,7 @@ class AmqpCommonUseCasesTest extends TestCase
         $this->amqpContext->declareTopic($topic);
 
         $consumer = $this->amqpContext->createConsumer($topic);
-        //guard
+        // guard
         $this->assertNull($consumer->receive(1000));
 
         $message = $this->amqpContext->createMessage(__METHOD__);
