@@ -25,7 +25,7 @@ jobs:
 
       - run: php ./bin/fix-symfony-version.php "5.4.*"
 
-      - uses: ramsey/composer-install@3
+      - uses: ramsey/composer-install@v3
 
       - run: sed -i 's/525568/16777471/' vendor/kwn/php-rdkafka-stubs/stubs/constants.php
 
