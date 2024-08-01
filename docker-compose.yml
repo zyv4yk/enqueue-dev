@@ -129,11 +129,12 @@ services:
   localstack:
     image: 'localstack/localstack:0.8.10'
     ports:
-      - '4576:4576'
-      - '4575:4575'
+      - "4567-4597:4567-4597"
     environment:
+      DEFAULT_REGION: 'us-east-1'
       HOSTNAME_EXTERNAL: 'localstack'
       SERVICES: 'sqs,sns'
+      DEBUG: 'true'
 
   influxdb:
     image: 'influxdb:latest'
