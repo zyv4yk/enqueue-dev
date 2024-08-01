@@ -127,12 +127,12 @@ services:
       - '9090:9090'
 
   localstack:
-    image: 'localstack/localstack:0.8.10'
+    image: 'localstack/localstack:latest'
     ports:
       - '4576:4576'
       - '4575:4575'
     environment:
-      HOSTNAME_EXTERNAL: 'localstack'
+      LOCALSTACK_HOST: 'localstack'
       SERVICES: 'sqs,sns'
 
   influxdb:
