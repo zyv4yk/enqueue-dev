@@ -44,7 +44,7 @@ waitForService localstack 4576 70
 php docker/bin/refresh-mysql-database.php || exit 1
 php docker/bin/refresh-postgres-database.php  || exit 1
 php pkg/job-queue/Tests/Functional/app/console doctrine:database:create --if-not-exists || exit 1
-php pkg/job-queue/Tests/Functional/app/console doctrine:schema:update --force || exit 1
+php pkg/job-queue/Tests/Functional/app/console doctrine:schema:update --force --complete || exit 1
 
 #php pkg/enqueue-bundle/Tests/Functional/app/console.php config:dump-reference  enqueue
 bin/phpunit "$@"
