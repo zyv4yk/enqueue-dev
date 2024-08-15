@@ -161,5 +161,5 @@ jobs:
       - run: bin/test.sh --exclude-group=gearman
         if: ${{ matrix.php == '8.1' && matrix.php != '8.2' }}
 
-      - run: docker-compose logs localstack
+      - run: docker compose logs localstack
         if: ${{ always() }}
